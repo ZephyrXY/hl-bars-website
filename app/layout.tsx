@@ -11,6 +11,9 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
+// Monetag ad tag (zone 11919142), inserted as-is into <head>.
+const monetagTag = `(function(s){s.dataset.zone='11919142',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`;
+
 export const metadata: Metadata = {
   title: {
     default: 'HL Bars | Roofing & Solar Supply and Installation',
@@ -27,6 +30,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: monetagTag }} />
+      </head>
       <body className="flex min-h-screen flex-col">
         <SiteHeader />
         <main className="flex-1">{children}</main>
