@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-slate-700 antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-display text-navy-900;
+}
