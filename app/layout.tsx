@@ -11,8 +11,13 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
-// Monetag ad tag (zone 11919142), inserted as-is into <head>.
-const monetagTag = `(function(s){s.dataset.zone='11919142',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`;
+// Monetag ad tags, inserted as-is into <head>.
+const monetagTags = [
+  // Zone 11919142
+  `(function(s){s.dataset.zone='11919142',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+  // Zone 11919186 (vignette)
+  `(function(s){s.dataset.zone='11919186',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))`,
+];
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: monetagTag }} />
+        {monetagTags.map((tag) => (
+          <script key={tag} dangerouslySetInnerHTML={{ __html: tag }} />
+        ))}
       </head>
       <body className="flex min-h-screen flex-col">
         <SiteHeader />
