@@ -16,7 +16,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:h-20 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="HL Bars home">
           <Image src={logo} alt="" priority className="h-10 w-10 sm:h-14 sm:w-14" />
-          <span className="leading-tight">
+          <span className="leading-tight max-[420px]:hidden">
             <span className="block font-display text-lg font-extrabold tracking-tight text-navy-900 sm:text-xl">
               HL <span className="text-copper-500">BARS</span>
             </span>
@@ -26,7 +26,7 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1 sm:gap-2">
+        <nav className="flex items-center gap-0.5 sm:gap-2">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -35,7 +35,7 @@ export default function SiteHeader() {
                 href={link.href}
                 aria-current={active ? 'page' : undefined}
                 className={clsx(
-                  'rounded-full px-3 py-2 text-sm font-semibold transition-colors sm:px-4',
+                  'whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors sm:px-4',
                   active
                     ? 'bg-navy-50 text-navy-800'
                     : 'text-slate-600 hover:bg-slate-100 hover:text-navy-800',

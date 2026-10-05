@@ -14,7 +14,9 @@ import {
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
 import { site } from '@/app/lib/site';
+import { solarPackages } from '@/app/lib/products';
 import { MessengerIcon } from '@/app/ui/brand-icons';
+import { ProductCard } from '@/app/ui/product-card';
 import solarDelivery from '@/public/images/solar-panels-delivery.jpg';
 import solarEquipment from '@/public/images/solar-batteries-inverters.jpg';
 import roofRedTile from '@/public/images/roof-red-tile.jpg';
@@ -153,6 +155,13 @@ export default function HomePage() {
                 materials and send a trained crew to install them properly the
                 first time.
               </p>
+              <Link
+                href="/products#roofing"
+                className="mt-6 inline-flex items-center gap-2 font-semibold text-copper-600 hover:text-copper-700"
+              >
+                View roofing products
+                <ArrowRightIcon className="h-5 w-5" />
+              </Link>
             </div>
             <ul className="grid gap-3 sm:grid-cols-2">
               {roofingPoints.map((point) => (
@@ -239,8 +248,39 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/products#solar"
+                className="mt-8 inline-flex items-center gap-2 font-semibold text-copper-600 hover:text-copper-700"
+              >
+                View all solar products
+                <ArrowRightIcon className="h-5 w-5" />
+              </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Solar packages */}
+      <section id="packages" className="scroll-mt-20 bg-slate-50 py-20 sm:scroll-mt-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="font-display text-sm font-bold uppercase tracking-wider text-copper-600">
+              Solar packages
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Complete hybrid systems, installed
+            </h2>
+            <p className="mt-4 text-lg leading-relaxed text-slate-600">
+              Inverter, panels, battery, accessories and professional installation
+              in one price. Not sure which one fits? We&apos;ll size it for you
+              during the free site assessment.
+            </p>
+          </div>
+          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {solarPackages.map((pkg) => (
+              <ProductCard key={pkg.id} product={pkg} />
+            ))}
+          </ul>
         </div>
       </section>
 

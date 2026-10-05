@@ -7,12 +7,18 @@ import { MessengerIcon } from '@/app/ui/brand-icons';
 
 const services = ['Roofing', 'Solar power system', 'Roofing and solar', 'Other'];
 
-export default function InquiryForm() {
+export default function InquiryForm({
+  initialService = services[0],
+  initialDetails = '',
+}: {
+  initialService?: string;
+  initialDetails?: string;
+}) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
-  const [service, setService] = useState(services[0]);
-  const [details, setDetails] = useState('');
+  const [service, setService] = useState(initialService);
+  const [details, setDetails] = useState(initialDetails);
   const [status, setStatus] = useState<string | null>(null);
 
   const message = [

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ClockIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
+import { categories, findProduct } from '@/app/lib/products';
 import { site } from '@/app/lib/site';
 import { FacebookIcon, MessengerIcon } from '@/app/ui/brand-icons';
 import InquiryForm from '@/app/ui/inquiry-form';
@@ -34,7 +35,14 @@ const channels = [
   },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ product?: string }>;
+}) {
+  const { product: productId } = await searchParams;
+  const product = findProduct(productId);
+
   return (
     <>
       <section className="bg-navy-900">
@@ -98,7 +106,10 @@ export default function ContactPage() {
               Fill this in and send it straight to us by SMS or Messenger.
             </p>
             <div className="mt-6">
-              <InquiryForm />
+              <InquiryForm
+                initialService={product && categories[product.category].service}
+                initialDetails={product && `I'm interested in: ${product.name}`}
+              />
             </div>
           </div>
         </div>
