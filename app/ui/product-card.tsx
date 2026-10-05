@@ -81,9 +81,9 @@ export function ProductCard({ product }: { product: Product }) {
               <span className="font-display text-2xl font-extrabold text-navy-900">
                 {formatPrice(product.price)}
               </span>
-              {product.priceNote && (
-                <span className="block text-xs text-slate-500">{product.priceNote}</span>
-              )}
+              <span className="block text-xs text-slate-500">
+                {[product.priceNote, 'VAT inclusive'].filter(Boolean).join(' · ')}
+              </span>
             </p>
           ) : (
             <p className="font-display font-bold text-navy-900">Ask for price</p>
@@ -120,6 +120,7 @@ export function ProductRow({ product }: { product: Product }) {
         <p className="font-display font-extrabold text-navy-900">
           {product.price ? formatPrice(product.price) : 'Ask for price'}
         </p>
+        {product.price && <p className="text-[11px] text-slate-500">VAT incl.</p>}
         <Link
           href={inquireHref(product)}
           className="text-xs font-semibold text-copper-600 hover:text-copper-700"

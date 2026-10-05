@@ -18,7 +18,7 @@ export const categories: Record<
   solar: {
     title: 'Solar Products',
     intro:
-      'Solar panels, hybrid and on-grid inverters, batteries, and the mounting and protection parts that go with them.',
+      'Solar panels, hybrid and on-grid inverters, batteries, and the mounting and protection parts that go with them. All prices are VAT inclusive.',
     service: 'Solar power system',
   },
 };

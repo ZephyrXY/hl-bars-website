@@ -272,7 +272,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
               Inverter, panels, battery, accessories and professional installation
-              in one price. Not sure which one fits? We&apos;ll size it for you
+              in one VAT-inclusive price. Not sure which one fits? We&apos;ll size it for you
               during the free site assessment.
             </p>
           </div>
