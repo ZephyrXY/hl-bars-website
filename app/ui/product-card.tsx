@@ -1,11 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRightIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { CheckIcon } from '@heroicons/react/24/outline';
 import { formatPrice, type Product } from '@/app/lib/products';
-
-function inquireHref(product: Product) {
-  return `/contact?product=${product.id}`;
-}
+import AddToInquiryButton from '@/app/ui/add-to-inquiry-button';
 
 function ProductImage({
   product,
@@ -88,13 +84,9 @@ export function ProductCard({ product }: { product: Product }) {
           ) : (
             <p className="font-display font-bold text-navy-900">Ask for price</p>
           )}
-          <Link
-            href={inquireHref(product)}
-            className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-800 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-700"
-          >
-            Inquire about this
-            <ArrowRightIcon className="h-4 w-4" />
-          </Link>
+          <div className="mt-4">
+            <AddToInquiryButton productId={product.id} productName={product.name} />
+          </div>
         </div>
       </div>
     </li>
@@ -121,12 +113,9 @@ export function ProductRow({ product }: { product: Product }) {
           {product.price ? formatPrice(product.price) : 'Ask for price'}
         </p>
         {product.price && <p className="text-[11px] text-slate-500">VAT incl.</p>}
-        <Link
-          href={inquireHref(product)}
-          className="text-xs font-semibold text-copper-600 hover:text-copper-700"
-        >
-          Inquire
-        </Link>
+        <div className="mt-1.5">
+          <AddToInquiryButton productId={product.id} productName={product.name} compact />
+        </div>
       </div>
     </li>
   );

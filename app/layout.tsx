@@ -3,6 +3,8 @@ import { Inter, Montserrat } from 'next/font/google';
 import '@/app/ui/global.css';
 import SiteHeader from '@/app/ui/site-header';
 import SiteFooter from '@/app/ui/site-footer';
+import { InquiryProvider } from '@/app/ui/inquiry-context';
+import InquiryFab from '@/app/ui/inquiry-fab';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const montserrat = Montserrat({
@@ -50,9 +52,12 @@ export default function RootLayout({
       </head>
 
       <body className="flex min-h-screen flex-col">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <InquiryProvider>
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <InquiryFab />
+        </InquiryProvider>
       </body>
     </html>
   );

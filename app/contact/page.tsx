@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ClockIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
-import { categories, findProduct } from '@/app/lib/products';
+import { findProduct } from '@/app/lib/products';
 import { site } from '@/app/lib/site';
 import { FacebookIcon, MessengerIcon } from '@/app/ui/brand-icons';
 import InquiryForm from '@/app/ui/inquiry-form';
@@ -100,16 +100,16 @@ export default async function ContactPage({
             </div>
           </div>
 
-          <div className="rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200 sm:p-8 lg:col-span-3">
+          <div
+            id="inquiry"
+            className="order-first scroll-mt-24 rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200 sm:scroll-mt-28 sm:p-8 lg:order-none lg:col-span-3"
+          >
             <h2 className="text-2xl font-extrabold tracking-tight">Send us an inquiry</h2>
             <p className="mt-2 text-sm text-slate-600">
               Fill this in and send it straight to us by SMS or Messenger.
             </p>
             <div className="mt-6">
-              <InquiryForm
-                initialService={product && categories[product.category].service}
-                initialDetails={product && `I'm interested in: ${product.name}`}
-              />
+              <InquiryForm initialProductId={product?.id} />
             </div>
           </div>
         </div>

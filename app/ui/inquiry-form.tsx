@@ -1,28 +1,71 @@
 'use client';
 
-import { useState } from 'react';
-import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import {
+  ChatBubbleLeftRightIcon,
+  MinusIcon,
+  PlusIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { site } from '@/app/lib/site';
+import { categories, findProduct, formatPrice, type Product } from '@/app/lib/products';
 import { MessengerIcon } from '@/app/ui/brand-icons';
+import { useInquiry } from '@/app/ui/inquiry-context';
 
 const services = ['Roofing', 'Solar power system', 'Roofing and solar', 'Other'];
 
-export default function InquiryForm({
-  initialService = services[0],
-  initialDetails = '',
-}: {
-  initialService?: string;
-  initialDetails?: string;
-}) {
+/** Picks the service that matches the products in the list. */
+function serviceFor(products: Product[]) {
+  const kinds = new Set(products.map((p) => p.category));
+  if (kinds.size === 2) return 'Roofing and solar';
+  const [only] = kinds;
+  return only ? categories[only].service : services[0];
+}
+
+export default function InquiryForm({ initialProductId }: { initialProductId?: string }) {
+  const inquiry = useInquiry();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
-  const [service, setService] = useState(initialService);
-  const [details, setDetails] = useState(initialDetails);
+  const [chosenService, setChosenService] = useState<string | null>(null);
+  const [details, setDetails] = useState('');
   const [status, setStatus] = useState<string | null>(null);
+
+  const { add } = inquiry;
+  useEffect(() => {
+    // Support old links like /contact?product=<id>.
+    if (initialProductId) add(initialProductId);
+  }, [initialProductId, add]);
+
+  const lines = inquiry.items.flatMap((item) => {
+    const product = findProduct(item.id);
+    return product ? [{ ...item, product }] : [];
+  });
+  const priced = lines.filter((line) => line.product.price);
+  const total = priced.reduce((sum, line) => sum + line.product.price! * line.qty, 0);
+  const service = chosenService ?? serviceFor(lines.map((line) => line.product));
 
   const message = [
     `Hi HL Bars! I'd like to inquire about: ${service}.`,
+    lines.length > 0 &&
+      [
+        '',
+        'Products:',
+        ...lines.map(({ qty, product }) =>
+          [
+            `- ${qty} × ${product.name}`,
+            product.model && ` (${product.model})`,
+            product.price && ` @ ${formatPrice(product.price)}`,
+          ]
+            .filter(Boolean)
+            .join(''),
+        ),
+        priced.length > 0 && `Estimated total: ${formatPrice(total)} (VAT inclusive)`,
+        '',
+      ]
+        .filter((line) => line !== false)
+        .join('\n'),
     name && `Name: ${name}`,
     phone && `Contact number: ${phone}`,
     location && `Location: ${location}`,
@@ -48,6 +91,108 @@ export default function InquiryForm({
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+      <div>
+        <div className="flex items-baseline justify-between gap-3">
+          <p className="text-sm font-semibold text-navy-900">
+            Products in your inquiry{lines.length > 0 && ` (${lines.length})`}
+          </p>
+          {lines.length > 0 && (
+            <button
+              type="button"
+              onClick={inquiry.clear}
+              className="text-xs font-semibold text-slate-500 hover:text-copper-700"
+            >
+              Clear all
+            </button>
+          )}
+        </div>
+
+        {lines.length === 0 ? (
+          <p className="mt-2 rounded-lg border border-dashed border-slate-300 bg-white px-4 py-3 text-sm text-slate-500">
+            No products added yet.{' '}
+            <Link href="/products" className="font-semibold text-copper-600 hover:text-copper-700">
+              Browse products
+            </Link>{' '}
+            and tap &ldquo;Add to inquiry&rdquo; on anything you&apos;d like a quote for, or just
+            describe your project below.
+          </p>
+        ) : (
+          <>
+            <ul className="mt-2 divide-y divide-slate-200 rounded-lg bg-white ring-1 ring-slate-200">
+              {lines.map(({ id, qty, product }) => (
+                <li key={id} className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
+                  <div className="min-w-0 flex-1 basis-48">
+                    <p className="text-sm font-semibold text-navy-900">{product.name}</p>
+                    <p className="text-xs text-slate-500">
+                      {product.price ? `${formatPrice(product.price)} each` : 'Price on request'}
+                      {product.model && ` · ${product.model}`}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      aria-label={`Decrease quantity of ${product.name}`}
+                      onClick={() => inquiry.setQty(id, qty - 1)}
+                      disabled={qty <= 1}
+                      className="rounded-full p-1.5 text-slate-600 hover:bg-slate-100 disabled:opacity-40"
+                    >
+                      <MinusIcon className="h-4 w-4" />
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      inputMode="numeric"
+                      aria-label={`Quantity of ${product.name}`}
+                      value={qty}
+                      onChange={(e) => inquiry.setQty(id, Number(e.target.value))}
+                      className="w-16 rounded-lg border-slate-300 px-2 py-1 text-center text-sm focus:border-navy-600 focus:ring-navy-600"
+                    />
+                    <button
+                      type="button"
+                      aria-label={`Increase quantity of ${product.name}`}
+                      onClick={() => inquiry.setQty(id, qty + 1)}
+                      className="rounded-full p-1.5 text-slate-600 hover:bg-slate-100"
+                    >
+                      <PlusIcon className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <p className="w-28 text-right text-sm font-semibold text-navy-900">
+                    {product.price ? formatPrice(product.price * qty) : '—'}
+                  </p>
+                  <button
+                    type="button"
+                    aria-label={`Remove ${product.name}`}
+                    onClick={() => inquiry.remove(id)}
+                    className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-copper-700"
+                  >
+                    <XMarkIcon className="h-4 w-4" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {priced.length > 0 && (
+              <p className="mt-2 text-right text-sm text-slate-600">
+                Estimated total:{' '}
+                <span className="font-display text-lg font-extrabold text-navy-900">
+                  {formatPrice(total)}
+                </span>
+                <span className="block text-xs text-slate-500">
+                  VAT inclusive
+                  {priced.length < lines.length && ', excludes items priced on request'}. Final
+                  quotation may vary.
+                </span>
+              </p>
+            )}
+            <Link
+              href="/products"
+              className="mt-2 inline-block text-sm font-semibold text-copper-600 hover:text-copper-700"
+            >
+              + Add more products
+            </Link>
+          </>
+        )}
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-semibold text-navy-900">
           Your name <span className="text-copper-600">*</span>
@@ -61,7 +206,7 @@ export default function InquiryForm({
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-semibold text-navy-900">
           I&apos;m interested in
-          <select value={service} onChange={(e) => setService(e.target.value)} className={inputClass}>
+          <select value={service} onChange={(e) => setChosenService(e.target.value)} className={inputClass}>
             {services.map((s) => (
               <option key={s}>{s}</option>
             ))}
