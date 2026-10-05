@@ -156,7 +156,7 @@ export default function HomePage() {
                 first time.
               </p>
               <Link
-                href="/products#roofing"
+                href="/products?category=roofing"
                 className="mt-6 inline-flex items-center gap-2 font-semibold text-copper-600 hover:text-copper-700"
               >
                 View roofing products
@@ -249,7 +249,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <Link
-                href="/products#solar"
+                href="/products?category=solar"
                 className="mt-8 inline-flex items-center gap-2 font-semibold text-copper-600 hover:text-copper-700"
               >
                 View all solar products

@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { PhoneIcon } from '@heroicons/react/24/solid';
 import logo from '@/public/images/logo.png';
 import { navLinks, site } from '@/app/lib/site';
+import ProductsMenu from '@/app/ui/products-menu';
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -29,6 +30,9 @@ export default function SiteHeader() {
         <nav className="flex items-center gap-0.5 sm:gap-2">
           {navLinks.map((link) => {
             const active = pathname === link.href;
+            if (link.href === '/products') {
+              return <ProductsMenu key={link.href} active={active} />;
+            }
             return (
               <Link
                 key={link.href}
