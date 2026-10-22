@@ -14,9 +14,8 @@ import {
   WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
 import { site } from '@/app/lib/site';
-import { solarPackages } from '@/app/lib/products';
 import { MessengerIcon } from '@/app/ui/brand-icons';
-import { ProductCard } from '@/app/ui/product-card';
+import PackageCarousel from '@/app/ui/package-carousel';
 import solarDelivery from '@/public/images/solar-panels-delivery.jpg';
 import solarEquipment from '@/public/images/solar-batteries-inverters.jpg';
 import roofRedTile from '@/public/images/roof-red-tile.jpg';
@@ -276,11 +275,9 @@ export default function HomePage() {
               during the free site assessment.
             </p>
           </div>
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {solarPackages.map((pkg) => (
-              <ProductCard key={pkg.id} product={pkg} />
-            ))}
-          </ul>
+          <div className="mt-12">
+            <PackageCarousel />
+          </div>
         </div>
       </section>
 
