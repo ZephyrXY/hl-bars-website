@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
+import Script from 'next/script';
 import '@/app/ui/global.css';
 import SiteHeader from '@/app/ui/site-header';
 import SiteFooter from '@/app/ui/site-footer';
 import { InquiryProvider } from '@/app/ui/inquiry-context';
 import InquiryFab from '@/app/ui/inquiry-fab';
+
+const gaMeasurementId = 'G-1GR14R4G9E';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const montserrat = Montserrat({
@@ -58,6 +61,20 @@ export default function RootLayout({
           <SiteFooter />
           <InquiryFab />
         </InquiryProvider>
+
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gaMeasurementId}');
+          `}
+        </Script>
       </body>
     </html>
   );
