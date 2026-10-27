@@ -6,13 +6,16 @@ import clsx from 'clsx';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { categories, groups, products, type ProductCategory } from '@/app/lib/products';
 
-const menu = (['roofing', 'solar'] as ProductCategory[]).map((category) => ({
-  category,
-  title: categories[category].title,
-  groups: groups.filter(
-    (group) => group.category === category && products.some((p) => p.group === group.id),
-  ),
-}));
+const menu = (['roofing', 'solar'] as ProductCategory[])
+  .map((category) => ({
+    category,
+    title: categories[category].title,
+    groups: groups.filter(
+      (group) => group.category === category && products.some((p) => p.group === group.id),
+    ),
+  }))
+  // Hide categories with no products listed.
+  .filter((section) => section.groups.length > 0);
 
 const href = (value?: string) => (value ? `/products?category=${value}` : '/products');
 

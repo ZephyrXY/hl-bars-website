@@ -15,9 +15,16 @@ const catalog = sections.map((section) => ({
   ...section,
   groups: groups
     .filter((group) => group.category === section.category)
-    .map((group) => ({ ...group, items: products.filter((p) => p.group === group.id) }))
+    .map((group) => ({
+      ...group,
+      // Widen the type so the "list" layout still works when no group currently uses it.
+      layout: group.layout as 'cards' | 'list',
+      items: products.filter((p) => p.group === group.id),
+    }))
     .filter((group) => group.items.length > 0),
-}));
+}))
+  // Hide categories with no products listed.
+  .filter((section) => section.groups.length > 0);
 
 const countFor = (category: ProductCategory) =>
   products.filter((p) => p.category === category).length;

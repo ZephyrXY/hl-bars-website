@@ -155,10 +155,10 @@ export default function HomePage() {
                 first time.
               </p>
               <Link
-                href="/products?category=roofing"
+                href="/contact"
                 className="mt-6 inline-flex items-center gap-2 font-semibold text-copper-600 hover:text-copper-700"
               >
-                View roofing products
+                Get a roofing quote
                 <ArrowRightIcon className="h-5 w-5" />
               </Link>
             </div>

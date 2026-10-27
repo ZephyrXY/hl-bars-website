@@ -6,7 +6,7 @@ import { CatalogView, ProductCatalog } from '@/app/ui/product-catalog';
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Roofing sheets, solar panels, SolaX and Luxpower inverters, LiFePO4 batteries, mounting and protection parts from HL Bars in Ormoc City and Naval, Biliran.',
+    'Solar panels, SolaX and Luxpower inverters, and LiFePO4 batteries from HL Bars in Ormoc City and Naval, Biliran.',
 };
 
 export default function ProductsPage() {
@@ -18,12 +18,10 @@ export default function ProductsPage() {
             Products
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-            Roofing and solar, supplied and installed
+            Solar products, supplied and installed
           </h1>
           <p className="mt-5 max-w-2xl text-lg text-navy-100/80">
-            Browse what we carry. Roofing prices depend on your roof size, so send
-            us an inquiry for a quotation. Looking for a complete solar setup? See
-            our{' '}
+            Browse what we carry. Looking for a complete solar setup? See our{' '}
             <Link href="/#packages" className="font-semibold text-copper-300 hover:text-copper-400">
               solar packages
             </Link>

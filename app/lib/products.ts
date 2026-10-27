@@ -1,7 +1,4 @@
 import type { StaticImageData } from 'next/image';
-import roofLongspanHouse from '@/public/images/roof-longspan-house.jpg';
-import roofTileSample from '@/public/images/roof-tile-profile-sample.jpg';
-import roofBlueCorrugated from '@/public/images/roof-blue-corrugated.jpg';
 
 export type ProductCategory = 'roofing' | 'solar';
 
@@ -18,7 +15,7 @@ export const categories: Record<
   solar: {
     title: 'Solar Products',
     intro:
-      'Solar panels, hybrid and on-grid inverters, batteries, and the mounting and protection parts that go with them. All prices are VAT inclusive.',
+      'Solar panels, hybrid and on-grid inverters, and batteries. All prices are VAT inclusive.',
     service: 'Solar power system',
   },
 };
@@ -29,15 +26,11 @@ export const categories: Record<
  * for small parts.
  */
 export const groups = [
-  { id: 'roofing-sheets', name: 'Roofing sheets', category: 'roofing', layout: 'cards' },
   { id: 'solar-panels', name: 'Solar panels', category: 'solar', layout: 'cards' },
   { id: 'solax-hybrid', name: 'SolaX hybrid inverters', category: 'solar', layout: 'cards' },
   { id: 'luxpower-inverters', name: 'Luxpower inverters', category: 'solar', layout: 'cards' },
   { id: 'solax-on-grid', name: 'SolaX on-grid inverters', category: 'solar', layout: 'cards' },
   { id: 'batteries', name: 'Batteries', category: 'solar', layout: 'cards' },
-  { id: 'monitoring-safety', name: 'Monitoring & rapid shutdown', category: 'solar', layout: 'cards' },
-  { id: 'mounting', name: 'Mounting & racking', category: 'solar', layout: 'list' },
-  { id: 'breakers', name: 'Breakers & surge protection', category: 'solar', layout: 'list' },
   { id: 'packages', name: 'Complete solar packages', category: 'solar', layout: 'cards' },
 ] as const satisfies readonly {
   id: string;
@@ -70,41 +63,8 @@ export type Product = {
 const photo = (name: string) => `/images/products/${name}.png`;
 
 const solaxWarranty = 'Warranty: 5 years (10 years if combined with a SolaX battery)';
-const mountingSpec = 'Aluminum alloy, Type-A';
 
 export const products: Product[] = [
-  // ───────────── Roofing ─────────────
-  {
-    id: 'longspan-rib-roofing',
-    category: 'roofing',
-    group: 'roofing-sheets',
-    name: 'Long-span rib-type roofing',
-    description:
-      'Pre-painted long-span sheets cut to the length of your roof, so there are fewer joints and fewer leaks.',
-    specs: ['Cut to length', 'Multiple colors', 'Supply only or supply & install'],
-    image: roofLongspanHouse,
-  },
-  {
-    id: 'tile-profile-roofing',
-    category: 'roofing',
-    group: 'roofing-sheets',
-    name: 'Tile-profile roofing',
-    description:
-      'Metal roofing shaped like classic clay tiles. The look of tile, but lighter and faster to install.',
-    specs: ['Tile look', 'Multiple colors', 'Supply only or supply & install'],
-    image: roofTileSample,
-  },
-  {
-    id: 'corrugated-roofing',
-    category: 'roofing',
-    group: 'roofing-sheets',
-    name: 'Corrugated roofing',
-    description:
-      'Classic corrugated sheets for homes, warehouses and extensions. Simple, durable and budget-friendly.',
-    specs: ['Multiple colors', 'Supply only or supply & install'],
-    image: roofBlueCorrugated,
-  },
-
   // ───────────── Solar panels ─────────────
   {
     id: 'trina-vertex-610w',
@@ -1080,176 +1040,6 @@ export const products: Product[] = [
     price: 110000,
     image: photo('genixgreen-es-box34-max-plus'),
   },
-
-  // ───────────── Monitoring & rapid shutdown ─────────────
-  {
-    id: 'fonrich-rsd-ttcb',
-    category: 'solar',
-    group: 'monitoring-safety',
-    name: 'Fonrich Rapid Shutdown Device (1 fits 2 PV modules, PLC)',
-    model: 'FR-PVMS-TTCB',
-    specs: [
-      'Max input operating voltage 60V × 2',
-      'Max continuous current 20A, 4 mm² cable',
-      'Monitors on/off status, module voltage, temperature and energy',
-      '10-year warranty',
-    ],
-    price: 4519.35,
-    image: photo('fonrich-rsd-ttcb'),
-  },
-  {
-    id: 'fonrich-plc-transceiver',
-    category: 'solar',
-    group: 'monitoring-safety',
-    name: 'Fonrich Smart PV PLC Transceiver',
-    model: 'FR-PVMS-HKB',
-    description:
-      'Sends data over the power lines (PLC) so you can monitor and manage your solar setup.',
-    specs: ['5-year warranty'],
-    price: 6334.35,
-    image: photo('fonrich-plc-transceiver'),
-  },
-  {
-    id: 'fonrich-monitor-gateway',
-    category: 'solar',
-    group: 'monitoring-safety',
-    name: 'Fonrich Smart PV Monitor & Gateway',
-    model: 'FR-PVMS-MGES',
-    description:
-      'Connects your solar panels to the management platform for performance tracking.',
-    specs: ['5-year warranty'],
-    price: 12632.4,
-    image: photo('fonrich-monitor-gateway'),
-  },
-  {
-    id: 'onccy-ers40-8',
-    category: 'solar',
-    group: 'monitoring-safety',
-    name: 'ONCCY Rapid Shutdown Switch, 8 strings',
-    model: 'ERS40-8-MC4',
-    description: 'Safety device for solar PV systems.',
-    specs: ['Up to 1000V DC', 'Up to 40A', '8 strings', '5-year warranty'],
-    price: 24733.5,
-  },
-  {
-    id: 'onccy-ers40-20',
-    category: 'solar',
-    group: 'monitoring-safety',
-    name: 'ONCCY Rapid Shutdown Switch (Firefighter Switch)',
-    model: 'ERS40-20-MC4',
-    description: 'String-level rapid shutdown device for rooftop PV systems.',
-    specs: ['MC4 connectors', 'Up to 10 strings', '1000V DC, 40A per string', '5-year warranty'],
-    price: 51133.5,
-  },
-
-  // ───────────── Mounting & racking ─────────────
-  ...([
-    ['2-4', '2.4', 1006.5],
-    ['2-8', '2.8', 1171.5],
-    ['3-6', '3.6', 1518],
-  ] as const).map(
-    ([slug, length, price]): Product => ({
-      id: `solar-railing-${slug}m`,
-      category: 'solar',
-      group: 'mounting',
-      name: `Solar panel railing, ${length} m`,
-      specs: [mountingSpec],
-      price,
-      image: photo('railing'),
-    }),
-  ),
-  {
-    id: 'solar-mid-clamp',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Solar panel mid clamp',
-    specs: [mountingSpec, 'Sizes: 30mm & 35mm'],
-    price: 62.7,
-    image: photo('mid-clamp'),
-  },
-  {
-    id: 'solar-end-clamp',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Solar panel end clamp',
-    specs: [mountingSpec, 'Sizes: 30mm, 33mm & 35mm'],
-    price: 62.7,
-    image: photo('end-clamp'),
-  },
-  {
-    id: 'solar-rail-splice',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Rail splice / connector',
-    specs: [mountingSpec],
-    price: 95.7,
-    image: photo('rail-splice'),
-  },
-  {
-    id: 'solar-ground-lug',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Ground lug',
-    specs: [mountingSpec],
-    price: 57.75,
-    image: photo('ground-lug'),
-  },
-  {
-    id: 'solar-ground-plate-clip',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Ground plate clip',
-    specs: [mountingSpec],
-    price: 19.8,
-    image: photo('ground-plate-clip'),
-  },
-  {
-    id: 'solar-l-foot',
-    category: 'solar',
-    group: 'mounting',
-    name: 'L foot',
-    specs: [mountingSpec],
-    price: 107.25,
-    image: photo('l-foot'),
-  },
-  {
-    id: 'solar-water-drainer',
-    category: 'solar',
-    group: 'mounting',
-    name: 'Water drainer',
-    specs: [mountingSpec, 'Sizes: 30mm, 33mm & 35mm'],
-    price: 39.6,
-    image: photo('water-drainer'),
-  },
-
-  // ───────────── Breakers & surge protection (ONCCY) ─────────────
-  ...([
-    ['ESM1-63/C32/2', 'AC MCB 32A 2P', 'Icn 10kA · Ui 500Vac · Ue 415Vac · 63A frame · C curve', 493.35],
-    ['ESM1-63/C50/2', 'AC MCB 50A 2P', 'Icn 10kA · Ui 500Vac · Ue 415Vac · 63A frame · C curve', 542.85],
-    ['ESM1-63/C63/2', 'AC MCB 63A 2P', 'Icn 10kA · Ui 500Vac · Ue 415Vac · 63A frame · C curve', 542.85],
-    ['EAB1-125H/C100/2', 'AC MCB 100A 2P', 'Icn 10kA · Ui 500Vac · Ue 415Vac · 100A frame · C curve', 955.35],
-    ['EAB1-125H/C125/2', 'AC MCB 125A 2P', 'Icn 10kA · Ui 500Vac · Ue 415Vac · 125A frame · C curve', 973.5],
-    ['EAM3-63U/63-33', 'AC MCCB 63A 3P', 'Ui AC800 · Ue AC400 · electromagnetic + thermal tripping', 1798.5],
-    ['EAM3-125U/125-33', 'AC MCCB 125A 3P', 'Ui AC800 · Ue AC400 · electromagnetic + thermal tripping', 3613.5],
-    ['EAM3-400U/400-33', 'AC MCCB 400A 3P', 'Ui AC800 · Ue AC400 · electromagnetic + thermal tripping', 9058.5],
-    ['EAM3-630U/500-33', 'AC MCCB 500A 3P', 'Ui AC800 · Ue AC400 · electromagnetic + thermal tripping', 15823.5],
-    ['EAP275/40-2', 'AC SPD 20A 2P', 'Type 2 · 275VAC · Imax 40kA · In 20kA', 610.5],
-    ['EAP275/40-3', 'AC SPD 20A 3P', 'Type 2 · 275VAC · Imax 40kA · In 20kA', 1303.5],
-    ['EDPG40-2', 'DC SPD 20A 2P 600V', 'Type 2 · 600V · Imax 40kA · In 20kA', 973.5],
-    ['EDPN40-2', 'DC SPD 20A 2P 1000V', 'Type 2 · 1000V · Imax 40kA · In 20kA', 1138.5],
-    ['EDPT20-3', 'DC SPD 20A 3P 1500V', 'Type 2 · 1500V · Imax 20kA · In 10kA', 2128.5],
-    ['EDB1-63/C25/2H', 'DC MCB 25A 2P', '6kA · C curve · Ue 600VDC', 742.5],
-  ] as const).map(
-    ([model, name, spec, price]): Product => ({
-      id: `onccy-${model.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
-      category: 'solar',
-      group: 'breakers',
-      name: `ONCCY ${name}`,
-      model,
-      specs: [spec],
-      price,
-    }),
-  ),
 ];
 
 /** Complete packages, shown on the home page. */
