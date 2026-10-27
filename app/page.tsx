@@ -1,4 +1,4 @@
-import Image, { type StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRightIcon,
@@ -15,13 +15,17 @@ import {
 } from '@heroicons/react/24/outline';
 import { site } from '@/app/lib/site';
 import { MessengerIcon } from '@/app/ui/brand-icons';
-import PackageCarousel from '@/app/ui/package-carousel';
+import ImageCarousel, { type CarouselSlide } from '@/app/ui/image-carousel';
 import solarDelivery from '@/public/images/solar-panels-delivery.jpg';
 import solarEquipment from '@/public/images/solar-batteries-inverters.jpg';
-import roofRedTile from '@/public/images/roof-red-tile.jpg';
-import roofLongspanHouse from '@/public/images/roof-longspan-house.jpg';
-import roofBlueCorrugated from '@/public/images/roof-blue-corrugated.jpg';
-import roofTileSample from '@/public/images/roof-tile-profile-sample.jpg';
+import roofRedTileHouse from '@/public/images/roof-red-tile-house.jpg';
+import roofBrownInstalled from '@/public/images/roof-brown-longspan-installed.jpg';
+import roofWoodgrain from '@/public/images/roof-woodgrain-sheets.jpg';
+import roofRollforming from '@/public/images/roof-sheets-rollforming.jpg';
+import promoSolax from '@/public/images/promo-solax-packages.jpg';
+import promoHlPower from '@/public/images/promo-hl-power-11kw.jpg';
+import promoXtriple from '@/public/images/promo-xtriple-tiers.jpg';
+import promoSolaxLuxpower from '@/public/images/promo-solax-luxpower.jpg';
 
 const highlights = [
   { icon: HomeModernIcon, title: 'Roofing', text: 'Supply & installation' },
@@ -30,11 +34,30 @@ const highlights = [
   { icon: WrenchScrewdriverIcon, title: 'After-sales support', text: 'We stay after the job' },
 ];
 
-const roofingGallery: { src: StaticImageData; alt: string }[] = [
-  { src: roofRedTile, alt: 'Newly installed red tile-profile metal roof on a house' },
-  { src: roofLongspanHouse, alt: 'Aerial view of a new two-storey house with a maroon long-span roof' },
-  { src: roofBlueCorrugated, alt: 'Blue corrugated roofing installed on a building near the sea' },
-  { src: roofTileSample, alt: 'Close-up of terracotta-colored tile-profile roofing sheets' },
+const roofingSlides: CarouselSlide[] = [
+  { src: roofRedTileHouse, alt: 'Red tile-profile metal roof installed on a new house in the hills' },
+  { src: roofBrownInstalled, alt: 'Brown long-span roof installed by HL Bars under a blue sky' },
+  { src: roofWoodgrain, alt: 'Wood-grain finish long-span roofing sheets' },
+  { src: roofRollforming, alt: 'Grey long-span roofing sheets fresh off the roll-forming machine' },
+];
+
+const packageSlides: CarouselSlide[] = [
+  {
+    src: promoSolax,
+    alt: 'Essential Hybrid 6kW package for ₱282,000 and Ultimate Heavy Duty 6kW package for ₱357,000',
+  },
+  {
+    src: promoHlPower,
+    alt: 'HL Power 11kW all-in package for ₱355,000',
+  },
+  {
+    src: promoXtriple,
+    alt: 'X Triple Power packages: Tier 1 for ₱405,000, Tier 2 for ₱621,000 and Tier 3 for ₱720,000',
+  },
+  {
+    src: promoSolaxLuxpower,
+    alt: 'SolaX Power hybrid systems in 6kW, 8kW, 10kW and 12kW with a 16.8kWh high-voltage battery, and Luxpower Tek 2nd Gen hybrid inverters in 6kW and 12kW',
+  },
 ];
 
 const roofingPoints = [
@@ -172,24 +195,8 @@ export default function HomePage() {
             </ul>
           </div>
 
-          <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-4 sm:auto-rows-[14rem] lg:grid-cols-4">
-            {roofingGallery.map((img, i) => (
-              <figure
-                key={img.alt}
-                className={
-                  'group relative overflow-hidden rounded-2xl shadow-md ring-1 ring-slate-200 ' +
-                  (i === 0 ? 'col-span-2 row-span-2' : i === 1 ? 'col-span-2' : '')
-                }
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  placeholder="blur"
-                  sizes={i < 2 ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, 50vw'}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />              </figure>
-            ))}
+          <div className="mt-12">
+            <ImageCarousel slides={roofingSlides} label="Roofing projects" crop />
           </div>
         </div>
       </section>
@@ -276,7 +283,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12">
-            <PackageCarousel />
+            <ImageCarousel slides={packageSlides} label="Solar packages" />
           </div>
         </div>
       </section>
