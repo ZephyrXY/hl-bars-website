@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <section className="bg-navy-900">
+      <section className="bg-charcoal-900">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="font-display text-sm font-bold uppercase tracking-wider text-copper-400">
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-brand-400">
             Products
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             Solar products, supplied and installed
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-navy-100/80">
+          <p className="mt-5 max-w-2xl text-lg text-charcoal-100/80">
             Browse what we carry. Looking for a complete solar setup? See our{' '}
-            <Link href="/#packages" className="font-semibold text-copper-300 hover:text-copper-400">
+            <Link href="/#packages" className="font-semibold text-brand-300 hover:text-brand-400">
               solar packages
             </Link>
             .

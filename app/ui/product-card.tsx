@@ -54,14 +54,14 @@ export function ProductCard({ product }: { product: Product }) {
         <ul className="mt-4 space-y-2 text-sm">
           {product.specs.map((spec) => (
             <li key={spec} className="flex gap-2">
-              <CheckIcon className="h-5 w-5 shrink-0 text-copper-500" />
+              <CheckIcon className="h-5 w-5 shrink-0 text-brand-500" />
               {spec}
             </li>
           ))}
         </ul>
         {product.details && (
           <details className="group mt-4 text-sm">
-            <summary className="cursor-pointer font-semibold text-navy-700 hover:text-copper-600">
+            <summary className="cursor-pointer font-semibold text-charcoal-700 hover:text-brand-600">
               Full specifications
             </summary>
             <ul className="mt-3 space-y-1.5 border-l-2 border-slate-200 pl-3 text-slate-600">
@@ -74,7 +74,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-auto pt-6">
           {product.price ? (
             <p>
-              <span className="font-display text-2xl font-extrabold text-navy-900">
+              <span className="font-display text-2xl font-extrabold text-charcoal-900">
                 {formatPrice(product.price)}
               </span>
               <span className="block text-xs text-slate-500">
@@ -82,7 +82,7 @@ export function ProductCard({ product }: { product: Product }) {
               </span>
             </p>
           ) : (
-            <p className="font-display font-bold text-navy-900">Ask for price</p>
+            <p className="font-display font-bold text-charcoal-900">Ask for price</p>
           )}
           <div className="mt-4">
             <AddToInquiryButton productId={product.id} productName={product.name} />
@@ -103,13 +103,13 @@ export function ProductRow({ product }: { product: Product }) {
         </div>
       )}
       <div className="min-w-0 flex-1">
-        <p className="font-semibold text-navy-900">{product.name}</p>
+        <p className="font-semibold text-charcoal-900">{product.name}</p>
         <p className="text-xs text-slate-500">
           {[product.model, ...product.specs].filter(Boolean).join(' · ')}
         </p>
       </div>
       <div className="shrink-0 text-right">
-        <p className="font-display font-extrabold text-navy-900">
+        <p className="font-display font-extrabold text-charcoal-900">
           {product.price ? formatPrice(product.price) : 'Ask for price'}
         </p>
         {product.price && <p className="text-[11px] text-slate-500">VAT incl.</p>}

@@ -80,7 +80,7 @@ export default function HeroSlideshow() {
           />
         ))}
 
-        <div className="absolute right-4 top-4 flex gap-1.5 rounded-full bg-navy-950/40 px-2.5 py-2 backdrop-blur">
+        <div className="absolute right-4 top-4 flex gap-1.5 rounded-full bg-charcoal-950/40 px-2.5 py-2 backdrop-blur">
           {slides.map((slide, i) => (
             <button
               key={slide.title}
@@ -108,11 +108,11 @@ export default function HeroSlideshow() {
               i === active ? 'opacity-100' : 'opacity-0',
             )}
           >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper-50 text-copper-600">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
               <Icon className="h-7 w-7" />
             </span>
             <p className="text-sm">
-              <span className="block font-display font-bold text-navy-900">{title}</span>
+              <span className="block font-display font-bold text-charcoal-900">{title}</span>
               {text}
             </p>
           </div>

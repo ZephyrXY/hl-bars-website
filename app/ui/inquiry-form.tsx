@@ -87,20 +87,20 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
   }
 
   const inputClass =
-    'mt-1.5 block w-full rounded-lg border-slate-300 text-sm shadow-sm focus:border-navy-600 focus:ring-navy-600';
+    'mt-1.5 block w-full rounded-lg border-slate-300 text-sm shadow-sm focus:border-charcoal-600 focus:ring-charcoal-600';
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
       <div>
         <div className="flex items-baseline justify-between gap-3">
-          <p className="text-sm font-semibold text-navy-900">
+          <p className="text-sm font-semibold text-charcoal-900">
             Products in your inquiry{lines.length > 0 && ` (${lines.length})`}
           </p>
           {lines.length > 0 && (
             <button
               type="button"
               onClick={inquiry.clear}
-              className="text-xs font-semibold text-slate-500 hover:text-copper-700"
+              className="text-xs font-semibold text-slate-500 hover:text-brand-700"
             >
               Clear all
             </button>
@@ -110,7 +110,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
         {lines.length === 0 ? (
           <p className="mt-2 rounded-lg border border-dashed border-slate-300 bg-white px-4 py-3 text-sm text-slate-500">
             No products added yet.{' '}
-            <Link href="/products" className="font-semibold text-copper-600 hover:text-copper-700">
+            <Link href="/products" className="font-semibold text-brand-600 hover:text-brand-700">
               Browse products
             </Link>{' '}
             and tap &ldquo;Add to inquiry&rdquo; on anything you&apos;d like a quote for, or just
@@ -122,7 +122,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
               {lines.map(({ id, qty, product }) => (
                 <li key={id} className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
                   <div className="min-w-0 flex-1 basis-48">
-                    <p className="text-sm font-semibold text-navy-900">{product.name}</p>
+                    <p className="text-sm font-semibold text-charcoal-900">{product.name}</p>
                     <p className="text-xs text-slate-500">
                       {product.price ? `${formatPrice(product.price)} each` : 'Price on request'}
                       {product.model && ` · ${product.model}`}
@@ -145,7 +145,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
                       aria-label={`Quantity of ${product.name}`}
                       value={qty}
                       onChange={(e) => inquiry.setQty(id, Number(e.target.value))}
-                      className="w-16 rounded-lg border-slate-300 px-2 py-1 text-center text-sm focus:border-navy-600 focus:ring-navy-600"
+                      className="w-16 rounded-lg border-slate-300 px-2 py-1 text-center text-sm focus:border-charcoal-600 focus:ring-charcoal-600"
                     />
                     <button
                       type="button"
@@ -156,14 +156,14 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
                       <PlusIcon className="h-4 w-4" />
                     </button>
                   </div>
-                  <p className="w-28 text-right text-sm font-semibold text-navy-900">
+                  <p className="w-28 text-right text-sm font-semibold text-charcoal-900">
                     {product.price ? formatPrice(product.price * qty) : '—'}
                   </p>
                   <button
                     type="button"
                     aria-label={`Remove ${product.name}`}
                     onClick={() => inquiry.remove(id)}
-                    className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-copper-700"
+                    className="rounded-full p-1.5 text-slate-400 hover:bg-slate-100 hover:text-brand-700"
                   >
                     <XMarkIcon className="h-4 w-4" />
                   </button>
@@ -173,7 +173,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
             {priced.length > 0 && (
               <p className="mt-2 text-right text-sm text-slate-600">
                 Estimated total:{' '}
-                <span className="font-display text-lg font-extrabold text-navy-900">
+                <span className="font-display text-lg font-extrabold text-charcoal-900">
                   {formatPrice(total)}
                 </span>
                 <span className="block text-xs text-slate-500">
@@ -185,7 +185,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
             )}
             <Link
               href="/products"
-              className="mt-2 inline-block text-sm font-semibold text-copper-600 hover:text-copper-700"
+              className="mt-2 inline-block text-sm font-semibold text-brand-600 hover:text-brand-700"
             >
               + Add more products
             </Link>
@@ -194,17 +194,17 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-navy-900">
-          Your name <span className="text-copper-600">*</span>
+        <label className="block text-sm font-semibold text-charcoal-900">
+          Your name <span className="text-brand-600">*</span>
           <input required value={name} onChange={(e) => setName(e.target.value)} className={inputClass} autoComplete="name" />
         </label>
-        <label className="block text-sm font-semibold text-navy-900">
-          Contact number <span className="text-copper-600">*</span>
+        <label className="block text-sm font-semibold text-charcoal-900">
+          Contact number <span className="text-brand-600">*</span>
           <input required type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputClass} autoComplete="tel" placeholder="09XX XXX XXXX" />
         </label>
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
-        <label className="block text-sm font-semibold text-navy-900">
+        <label className="block text-sm font-semibold text-charcoal-900">
           I&apos;m interested in
           <select value={service} onChange={(e) => setChosenService(e.target.value)} className={inputClass}>
             {services.map((s) => (
@@ -212,12 +212,12 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
             ))}
           </select>
         </label>
-        <label className="block text-sm font-semibold text-navy-900">
+        <label className="block text-sm font-semibold text-charcoal-900">
           Location
           <input value={location} onChange={(e) => setLocation(e.target.value)} className={inputClass} placeholder="Barangay, City" />
         </label>
       </div>
-      <label className="block text-sm font-semibold text-navy-900">
+      <label className="block text-sm font-semibold text-charcoal-900">
         Tell us about your project
         <textarea
           rows={4}
@@ -238,7 +238,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
               setStatus('Please enter your name and contact number first.');
             }
           }}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-copper-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-copper-600 aria-disabled:opacity-60"
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-brand-500 px-6 py-3 font-semibold text-charcoal-950 transition-colors hover:bg-brand-400 aria-disabled:opacity-60"
         >
           <ChatBubbleLeftRightIcon className="h-5 w-5" />
           Send via SMS
@@ -246,14 +246,14 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
         <button
           type="button"
           onClick={() => (canSend ? sendViaMessenger() : setStatus('Please enter your name and contact number first.'))}
-          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-navy-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-navy-700"
+          className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-charcoal-800 px-6 py-3 font-semibold text-white transition-colors hover:bg-charcoal-700"
         >
           <MessengerIcon className="h-5 w-5" />
           Send via Messenger
         </button>
       </div>
       {status && (
-        <p role="status" className="rounded-lg bg-navy-50 px-4 py-3 text-sm text-navy-800">
+        <p role="status" className="rounded-lg bg-charcoal-50 px-4 py-3 text-sm text-charcoal-800">
           {status}
         </p>
       )}

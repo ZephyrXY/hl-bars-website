@@ -84,7 +84,7 @@ export function CatalogView({
     <div ref={topRef} className="scroll-mt-16 sm:scroll-mt-20">
       <div className="sticky top-16 z-40 border-b border-slate-200 bg-white/90 backdrop-blur sm:top-20">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 sm:px-6 lg:px-8">
-          <label htmlFor="product-category" className="text-sm font-semibold text-navy-900">
+          <label htmlFor="product-category" className="text-sm font-semibold text-charcoal-900">
             Category
           </label>
           <select
@@ -97,7 +97,7 @@ export function CatalogView({
               const top = topRef.current;
               if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView();
             }}
-            className="min-w-0 flex-1 rounded-full border-slate-300 py-2 pl-4 pr-10 text-sm font-semibold text-navy-800 shadow-sm focus:border-navy-600 focus:ring-navy-600 sm:max-w-sm sm:flex-none"
+            className="min-w-0 flex-1 rounded-full border-slate-300 py-2 pl-4 pr-10 text-sm font-semibold text-charcoal-800 shadow-sm focus:border-charcoal-600 focus:ring-charcoal-600 sm:max-w-sm sm:flex-none"
           >
             <option value="all">All products ({products.length})</option>
             {catalog.map((section) => (
@@ -124,7 +124,7 @@ export function CatalogView({
         <section key={category} className={`py-16 ${i % 2 === 0 ? 'bg-slate-50' : ''}`}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-start gap-4">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper-50 text-copper-600">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
                 <Icon className="h-7 w-7" />
               </span>
               <div>
@@ -137,7 +137,7 @@ export function CatalogView({
 
             {sectionGroups.map((group) => (
               <div key={group.id} className="mt-12">
-                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-copper-600">
+                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-brand-600">
                   {group.name}
                 </h3>
                 {group.layout === 'list' ? (

@@ -43,7 +43,7 @@ export default function ProductsMenu({ active }: { active: boolean }) {
 
   const close = () => setOpen(false);
   const itemClass =
-    'block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-navy-50 hover:text-navy-800';
+    'block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-charcoal-50 hover:text-charcoal-800';
 
   return (
     <div ref={rootRef} className="sm:relative">
@@ -55,8 +55,8 @@ export default function ProductsMenu({ active }: { active: boolean }) {
         className={clsx(
           'inline-flex items-center gap-0.5 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors sm:px-4',
           active || open
-            ? 'bg-navy-50 text-navy-800'
-            : 'text-slate-600 hover:bg-slate-100 hover:text-navy-800',
+            ? 'bg-charcoal-50 text-charcoal-800'
+            : 'text-slate-600 hover:bg-slate-100 hover:text-charcoal-800',
         )}
       >
         Products
@@ -71,7 +71,7 @@ export default function ProductsMenu({ active }: { active: boolean }) {
           id={menuId}
           className="absolute inset-x-4 top-full mt-2 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-2xl bg-white p-2 shadow-xl ring-1 ring-slate-200 sm:inset-x-auto sm:right-0 sm:w-72"
         >
-          <Link href={href()} onClick={close} className={clsx(itemClass, 'font-semibold text-navy-900')}>
+          <Link href={href()} onClick={close} className={clsx(itemClass, 'font-semibold text-charcoal-900')}>
             All products
           </Link>
           {menu.map((section) => (
@@ -79,7 +79,7 @@ export default function ProductsMenu({ active }: { active: boolean }) {
               <Link
                 href={href(section.category)}
                 onClick={close}
-                className={clsx(itemClass, 'font-semibold text-navy-900')}
+                className={clsx(itemClass, 'font-semibold text-charcoal-900')}
               >
                 {section.title}
               </Link>

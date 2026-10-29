@@ -102,7 +102,7 @@ export default function ImageCarousel({
   const move = (delta: number) => center(currentRef.current + delta, 'smooth');
 
   const arrowClass =
-    'absolute top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/90 p-3 text-navy-900 shadow-lg ring-1 ring-slate-200 transition hover:bg-white sm:block';
+    'absolute top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/90 p-3 text-charcoal-900 shadow-lg ring-1 ring-slate-200 transition hover:bg-white sm:block';
 
   return (
     <div className="relative" role="region" aria-roledescription="carousel" aria-label={label}>
@@ -179,7 +179,7 @@ export default function ImageCarousel({
             aria-current={i === active}
             className={clsx(
               'h-2.5 rounded-full transition-all',
-              i === active ? 'w-8 bg-copper-500' : 'w-2.5 bg-slate-300 hover:bg-slate-400',
+              i === active ? 'w-8 bg-brand-500' : 'w-2.5 bg-slate-300 hover:bg-slate-400',
             )}
           />
         ))}

@@ -45,15 +45,15 @@ export default async function ContactPage({
 
   return (
     <>
-      <section className="bg-navy-900">
+      <section className="bg-charcoal-900">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-          <p className="font-display text-sm font-bold uppercase tracking-wider text-copper-400">
+          <p className="font-display text-sm font-bold uppercase tracking-wider text-brand-400">
             Contact Us
           </p>
           <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
             Let&apos;s talk about your roof or your solar setup
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-navy-100/80">
+          <p className="mt-5 max-w-2xl text-lg text-charcoal-100/80">
             Ask for a quotation or book a free site assessment by calling,
             texting, or messaging us during business hours.
           </p>
@@ -68,21 +68,21 @@ export default async function ContactPage({
                 key={label}
                 href={href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:shadow-md hover:ring-copper-300"
+                className="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 transition hover:shadow-md hover:ring-brand-300"
               >
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-50 text-navy-700 group-hover:bg-copper-50 group-hover:text-copper-600">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-charcoal-50 text-charcoal-700 group-hover:bg-brand-50 group-hover:text-brand-600">
                   <Icon className="h-6 w-6" />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-sm text-slate-500">{label}</span>
-                  <span className="block break-words font-display font-bold text-navy-900">{value}</span>
+                  <span className="block break-words font-display font-bold text-charcoal-900">{value}</span>
                 </span>
               </a>
             ))}
 
-            <div className="rounded-2xl bg-navy-900 p-6 text-navy-100">
+            <div className="rounded-2xl bg-charcoal-900 p-6 text-charcoal-100">
               <p className="flex items-center gap-3 font-display font-bold text-white">
-                <ClockIcon className="h-6 w-6 text-copper-400" />
+                <ClockIcon className="h-6 w-6 text-brand-400" />
                 Business hours
               </p>
               <p className="mt-3 text-lg">
@@ -90,7 +90,7 @@ export default async function ContactPage({
               </p>
               <p>{site.days}</p>
               <p className="mt-4 flex items-start gap-3 border-t border-white/10 pt-4 text-sm">
-                <MapPinIcon className="h-5 w-5 shrink-0 text-copper-400" />
+                <MapPinIcon className="h-5 w-5 shrink-0 text-brand-400" />
                 <span>
                   {site.address}
                   <br />

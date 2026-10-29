@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { PhoneIcon } from '@heroicons/react/24/solid';
-import logo from '@/public/images/logo.png';
+import logo from '@/public/images/logo-mark.png';
 import { navLinks, site } from '@/app/lib/site';
 import ProductsMenu from '@/app/ui/products-menu';
 
@@ -18,8 +18,8 @@ export default function SiteHeader() {
         <Link href="/" className="flex items-center gap-3" aria-label="HL Bars home">
           <Image src={logo} alt="" priority className="h-10 w-10 sm:h-14 sm:w-14" />
           <span className="leading-tight max-[420px]:hidden">
-            <span className="block font-display text-lg font-extrabold tracking-tight text-navy-900 sm:text-xl">
-              HL <span className="text-copper-500">BARS</span>
+            <span className="block font-display text-lg font-extrabold tracking-tight text-charcoal-800 sm:text-xl">
+              HL BARS
             </span>
             <span className="hidden text-xs font-medium text-slate-500 sm:block">
               {site.legalName}
@@ -41,8 +41,8 @@ export default function SiteHeader() {
                 className={clsx(
                   'whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors sm:px-4',
                   active
-                    ? 'bg-navy-50 text-navy-800'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-navy-800',
+                    ? 'bg-charcoal-50 text-charcoal-800'
+                    : 'text-slate-600 hover:bg-slate-100 hover:text-charcoal-800',
                 )}
               >
                 {link.name}
@@ -51,7 +51,7 @@ export default function SiteHeader() {
           })}
           <a
             href={site.phoneHref}
-            className="ml-2 hidden items-center gap-2 rounded-full bg-copper-500 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-copper-600 md:inline-flex"
+            className="ml-2 hidden items-center gap-2 rounded-full bg-brand-500 px-4 py-2 text-sm font-semibold text-charcoal-950 shadow-sm transition-colors hover:bg-brand-400 md:inline-flex"
           >
             <PhoneIcon className="h-4 w-4" />
             {site.phoneDisplay}

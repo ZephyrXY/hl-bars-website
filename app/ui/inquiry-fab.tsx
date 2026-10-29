@@ -15,11 +15,11 @@ export default function InquiryFab() {
   return (
     <Link
       href="/contact#inquiry"
-      className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-copper-500 px-5 py-3 font-semibold text-white shadow-xl shadow-navy-900/20 transition-colors hover:bg-copper-600 sm:bottom-6 sm:right-6"
+      className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2 rounded-full bg-brand-500 px-5 py-3 font-semibold text-charcoal-950 shadow-xl shadow-charcoal-900/20 transition-colors hover:bg-brand-400 sm:bottom-6 sm:right-6"
     >
       <ClipboardDocumentListIcon className="h-5 w-5" />
       Send inquiry
-      <span className="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-copper-700">
+      <span className="rounded-full bg-white px-2 py-0.5 text-xs font-bold text-brand-700">
         {count}
       </span>
     </Link>

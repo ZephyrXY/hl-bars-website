@@ -28,8 +28,8 @@ export default function AddToInquiryButton({
         'inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-colors',
         compact ? 'px-3 py-1 text-xs' : 'w-full px-5 py-2.5 text-sm',
         added
-          ? 'bg-copper-50 text-copper-700 ring-1 ring-copper-300 hover:bg-copper-100'
-          : 'bg-navy-800 text-white hover:bg-navy-700',
+          ? 'bg-brand-50 text-brand-700 ring-1 ring-brand-300 hover:bg-brand-100'
+          : 'bg-charcoal-800 text-white hover:bg-charcoal-700',
       )}
     >
       <Icon className={compact ? 'h-3.5 w-3.5' : 'h-4 w-4'} />
