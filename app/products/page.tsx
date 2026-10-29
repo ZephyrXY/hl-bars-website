@@ -6,7 +6,7 @@ import { CatalogView, ProductCatalog } from '@/app/ui/product-catalog';
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Solar panels, SolaX and Luxpower inverters, and LiFePO4 batteries from HL Bars in Ormoc City and Naval, Biliran.',
+    'Solar panels, HL, SolaX and Luxpower inverters, and LiFePO4 batteries from HL Bars in Ormoc City and Naval, Biliran.',
 };
 
 export default function ProductsPage() {
