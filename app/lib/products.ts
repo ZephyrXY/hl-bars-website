@@ -93,7 +93,7 @@ export const products: Product[] = [
       'Product warranty: 12 years',
       'Performance warranty: 30 years',
     ],
-    price: 8910,
+    price: 7280,
     image: photo('trina-vertex-610w'),
   },
   {
@@ -122,7 +122,7 @@ export const products: Product[] = [
       'Operating temperature: −40°C to +85°C',
       'Warranty: 15 years product workmanship; 30 years power output with 0.4% annual degradation',
     ],
-    price: 9405,
+    price: 8400,
     image: photo('hanersun-topcon-600w'),
   },
   {
@@ -158,7 +158,7 @@ export const products: Product[] = [
       'Static load: up to 5400Pa front, 2400Pa rear',
       'Warranty: 12 years product; 30 years power output with 0.4% annual degradation',
     ],
-    price: 6500,
+    price: 7280,
     image: photo('znshine-600w'),
   },
   {
@@ -187,7 +187,7 @@ export const products: Product[] = [
       'Operating temperature: −40°C to +85°C',
       'Warranty: 12 years product workmanship; 30 years power output with 0.4% annual degradation',
     ],
-    price: 11682,
+    price: 10752,
     image: photo('trina-vertex-n-715w'),
   },
 
@@ -221,7 +221,7 @@ export const products: Product[] = [
       'Battery voltage range: 40–60V',
       'Max battery charging current: 120A',
     ],
-    price: 67567.5,
+    price: 62720,
     image: photo('solax-x1-hyb-5'),
   },
   {
@@ -256,7 +256,7 @@ export const products: Product[] = [
       'Weight: 37.4 kg',
       solaxWarranty,
     ],
-    price: 76230,
+    price: 70560,
     image: photo('solax-x1-hyb-6'),
   },
   {
@@ -288,7 +288,7 @@ export const products: Product[] = [
       'Weight: 13 kg',
       solaxWarranty,
     ],
-    price: 100650,
+    price: 92232,
     image: photo('solax-x1-reno-8'),
   },
   {
@@ -320,7 +320,7 @@ export const products: Product[] = [
       'Weight: 13 kg',
       solaxWarranty,
     ],
-    price: 112695,
+    price: 103600,
     image: photo('solax-x1-lite-8'),
   },
   {
@@ -354,7 +354,7 @@ export const products: Product[] = [
       'Weight: 37.4 kg',
       solaxWarranty,
     ],
-    price: 128535,
+    price: 123200,
     image: photo('solax-x1-lite-10'),
   },
   {
@@ -388,7 +388,7 @@ export const products: Product[] = [
       'Weight: 37.4 kg',
       solaxWarranty,
     ],
-    price: 142065,
+    price: 134400,
     image: photo('solax-x1-lite-12'),
   },
   {
@@ -422,7 +422,7 @@ export const products: Product[] = [
       'Weight: 44.6 kg',
       solaxWarranty,
     ],
-    price: 226957.5,
+    price: 212800,
     image: photo('solax-x3-neo-15k'),
   },
 
@@ -457,7 +457,7 @@ export const products: Product[] = [
         'Weight ~14.5 kg; size ~330 × 505 × 135 mm',
         `Warranty: ${warranty === '2-year' ? '2 years' : '5 years'}`,
       ],
-      price: warranty === '2-year' ? 42900 : 57172.5,
+      price: warranty === '2-year' ? 39312 : 52416,
       image: photo('luxpower-sna-6k'),
     }),
   ),
@@ -492,7 +492,7 @@ export const products: Product[] = [
         'Switching time (UPS / backup): ~10 ms',
         `Warranty: ${warranty === '2-year' ? '2 years' : '5 years'}`,
       ],
-      price: warranty === '2-year' ? 123750 : 150727.5,
+      price: warranty === '2-year' ? 114240 : 140000,
       image: photo('luxpower-sna-14k'),
     }),
   ),
@@ -525,7 +525,7 @@ export const products: Product[] = [
       'Switching time (UPS / backup): ~10 ms',
       'Warranty: 2 years',
     ],
-    price: 18232.5,
+    price: 16800,
     image: photo('luxpower-geta-1-5k'),
   },
   {
@@ -557,7 +557,7 @@ export const products: Product[] = [
       'Switching time (UPS / backup): ~10 ms',
       'Warranty: 2 years',
     ],
-    price: 26853.75,
+    price: 24640,
     image: photo('luxpower-geta-3-6k'),
   },
   {
@@ -567,7 +567,7 @@ export const products: Product[] = [
     name: 'LuxPower SNA3 Series 6.5kW Hybrid Inverter',
     model: 'SNA-EU-6.5K',
     specs: ['Wide PV range', 'EU version (230Vac / 220Vac)', 'IP65', '5-year warranty'],
-    price: 52800,
+    price: 48384,
     image: photo('luxpower-sna-eu-6-5k'),
   },
   {
@@ -577,7 +577,7 @@ export const products: Product[] = [
     name: 'LuxPower 6kW Hybrid Inverter (GEN2)',
     model: 'GEN2-LB-EU-6K (Single Phase)',
     specs: ['120A charge / discharge current', 'IP65', 'EU version (230Vac / 220Vac)'],
-    price: 72600,
+    price: 67200,
     image: photo('luxpower-gen2-6k'),
   },
   {
@@ -587,7 +587,7 @@ export const products: Product[] = [
     name: 'LuxPower ECO 12kW Hybrid Inverter',
     model: 'SNA 12000 WPV',
     specs: ['Wide PV range', 'EU version (230Vac / 220Vac), with breaker', '5-year warranty'],
-    price: 118800,
+    price: 108864,
     image: photo('luxpower-sna-12000-wpv'),
   },
   {
@@ -597,7 +597,7 @@ export const products: Product[] = [
     name: 'LuxPower 2nd Generation 12kW Hybrid Inverter',
     model: 'GEN2-LB-EU-12K (Single Phase)',
     specs: ['Parallel function included', '48V battery'],
-    price: 131670,
+    price: 123200,
     image: photo('luxpower-gen2-12k'),
   },
   {
@@ -607,7 +607,7 @@ export const products: Product[] = [
     name: 'LuxPower 20kW Three Phase Hybrid Inverter',
     model: 'TriP2-LB-3P 20K (Three Phase, 400V)',
     specs: ['20kW AC output', '230Vac / 400Vac', 'Battery voltage 40–60V', '5-year warranty'],
-    price: 206250,
+    price: 190400,
     image: photo('luxpower-trip2-lb-20k'),
   },
   {
@@ -617,7 +617,7 @@ export const products: Product[] = [
     name: 'LuxPower 30kW Three Phase Hybrid Inverter',
     model: 'TriP2-HB-3P 30K (Three Phase, 400V)',
     specs: ['30kW AC output', '230Vac / 400Vac', 'Battery voltage 100–700V', '5-year warranty'],
-    price: 270600,
+    price: 257600,
     image: photo('luxpower-trip2-hb-30k'),
   },
 
@@ -654,7 +654,7 @@ export const products: Product[] = [
       'Weight: 5.5 kg',
       'Warranty: 10 years',
     ],
-    price: 36300,
+    price: 32480,
     image: photo('solax-x1-mini-3k'),
   },
   {
@@ -689,7 +689,7 @@ export const products: Product[] = [
       'Weight: 11 kg',
       'Warranty: 10 years',
     ],
-    price: 46200,
+    price: 41400,
     image: photo('solax-x1-boost-5k'),
   },
   {
@@ -722,7 +722,7 @@ export const products: Product[] = [
       'Weight: 11 kg',
       'Warranty: 10 years',
     ],
-    price: 49500,
+    price: 43680,
     image: photo('solax-x1-boost-6k'),
   },
   {
@@ -757,7 +757,7 @@ export const products: Product[] = [
       'Weight: 19.5 kg',
       'Warranty: 10 years',
     ],
-    price: 69300,
+    price: 61152,
     image: photo('solax-x1-smt-8k'),
   },
   {
@@ -790,7 +790,7 @@ export const products: Product[] = [
       'Weight: 19.5 kg',
       'Warranty: 10 years',
     ],
-    price: 81427.5,
+    price: 71904,
     image: photo('solax-x1-smt-10k'),
   },
   {
@@ -818,7 +818,7 @@ export const products: Product[] = [
       'Display / communication: RS485, PLC (optional), Pocket WiFi, LAN, 4G (optional), USB',
       'Warranty: 5 years',
     ],
-    price: 204600,
+    price: 180544,
     image: photo('solax-x3-mga-20k'),
   },
   {
@@ -847,7 +847,7 @@ export const products: Product[] = [
       'Display / communication: RS485, PLC (optional), Pocket WiFi, LAN, 4G (optional), USB',
       'Warranty: 5 years',
     ],
-    price: 363825,
+    price: 321440,
     image: photo('solax-x3-fth-50k'),
   },
   {
@@ -876,7 +876,7 @@ export const products: Product[] = [
       'Display / communication: RS485, PLC (optional), Pocket WiFi, LAN, 4G (optional), USB',
       'Warranty: 5 years',
     ],
-    price: 405405,
+    price: 358400,
     image: photo('solax-x3-fth-70k'),
   },
 
@@ -909,7 +909,7 @@ export const products: Product[] = [
       'Communication: CAN + RS485',
       'Warranty: 5 years (10 years with SolaX inverter + battery)',
     ],
-    price: 74250,
+    price: 65520,
     image: photo('solax-ld51'),
   },
   {
@@ -940,7 +940,7 @@ export const products: Product[] = [
       'Communication: CAN + RS485',
       'Warranty: 5 years (10 years with SolaX inverter + battery)',
     ],
-    price: 162030,
+    price: 143360,
     image: photo('solax-ld117'),
   },
   {
@@ -967,7 +967,7 @@ export const products: Product[] = [
       'Communication: CAN + RS485',
       'Warranty: 5 years (10 years with SolaX inverter + battery)',
     ],
-    price: 171600,
+    price: 151424,
     image: photo('solax-ld160'),
   },
   {
@@ -983,7 +983,7 @@ export const products: Product[] = [
       'Works with the GETA 3.6kW inverter',
       '5-year warranty',
     ],
-    price: 98752.5,
+    price: 90720,
     image: photo('luxpower-li-7-5e'),
   },
   {
@@ -999,7 +999,7 @@ export const products: Product[] = [
       'Works with SNA inverters (6kW, 6.6kW and 14kW)',
       '5-year warranty',
     ],
-    price: 149325,
+    price: 140000,
     image: photo('luxpower-li-15e'),
   },
   {
@@ -1037,7 +1037,7 @@ export const products: Product[] = [
       'Certifications: RoHS, UN38.3, MSDS',
       'Warranty: 5 years',
     ],
-    price: 110000,
+    price: 123200,
     image: photo('genixgreen-es-box34-max-plus'),
   },
 ];
