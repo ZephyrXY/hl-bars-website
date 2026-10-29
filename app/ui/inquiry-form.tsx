@@ -28,6 +28,8 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [location, setLocation] = useState('');
+  const [branchName, setBranchName] = useState(site.locations[0].branch);
+  const branch = site.locations.find((l) => l.branch === branchName) ?? site.locations[0];
   const [chosenService, setChosenService] = useState<string | null>(null);
   const [details, setDetails] = useState('');
   const [status, setStatus] = useState<string | null>(null);
@@ -193,6 +195,31 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
         )}
       </div>
 
+      <fieldset>
+        <legend className="text-sm font-semibold text-charcoal-900">Which branch?</legend>
+        <div className="mt-1.5 grid gap-3 sm:grid-cols-2">
+          {site.locations.map((l) => (
+            <label
+              key={l.branch}
+              className="flex cursor-pointer items-start gap-3 rounded-lg bg-white px-4 py-3 text-sm ring-1 ring-slate-300 has-[:checked]:ring-2 has-[:checked]:ring-brand-500"
+            >
+              <input
+                type="radio"
+                name="branch"
+                value={l.branch}
+                checked={branchName === l.branch}
+                onChange={() => setBranchName(l.branch)}
+                className="mt-0.5 text-brand-500 focus:ring-brand-500"
+              />
+              <span>
+                <span className="block font-semibold text-charcoal-900">{l.branch}</span>
+                <span className="text-slate-500">{l.phoneDisplay}</span>
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-semibold text-charcoal-900">
           Your name <span className="text-brand-600">*</span>
@@ -230,7 +257,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
 
       <div className="flex flex-col gap-3 sm:flex-row">
         <a
-          href={canSend ? `${site.smsHref}?body=${encodeURIComponent(message)}` : undefined}
+          href={canSend ? `${branch.smsHref}?body=${encodeURIComponent(message)}` : undefined}
           aria-disabled={!canSend}
           onClick={(e) => {
             if (!canSend) {
@@ -258,7 +285,7 @@ export default function InquiryForm({ initialProductId }: { initialProductId?: s
         </p>
       )}
       <p className="text-xs text-slate-500">
-        SMS opens your phone&apos;s messaging app with your inquiry filled in, ready to send to {site.phoneDisplay}.
+        SMS opens your phone&apos;s messaging app with your inquiry filled in, ready to send to the {branch.branch} branch at {branch.phoneDisplay}.
       </p>
     </form>
   );

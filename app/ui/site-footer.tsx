@@ -37,15 +37,17 @@ export default function SiteFooter() {
             Get in touch
           </h2>
           <ul className="mt-4 space-y-3 text-sm">
-            <li>
-              <a href={site.phoneHref} className="flex items-center gap-3 hover:text-brand-300">
-                <PhoneIcon className="h-5 w-5 shrink-0 text-brand-400" />
-                <span>
-                  <span className="text-charcoal-100/60">Contact Us:</span>{' '}
-                  {site.phone}
-                </span>
-              </a>
-            </li>
+            {site.locations.map((location) => (
+              <li key={location.branch}>
+                <a href={location.phoneHref} className="flex items-center gap-3 hover:text-brand-300">
+                  <PhoneIcon className="h-5 w-5 shrink-0 text-brand-400" />
+                  <span>
+                    <span className="text-charcoal-100/60">{location.branch}:</span>{' '}
+                    {location.phone}
+                  </span>
+                </a>
+              </li>
+            ))}
             <li>
               <a
                 href={site.facebook}
@@ -89,10 +91,15 @@ export default function SiteFooter() {
               {site.days}
             </span>
           </p>
-          <p className="mt-4 flex gap-3 text-sm">
-            <MapPinIcon className="h-5 w-5 shrink-0 text-brand-400" />
-            <span>{site.address}</span>
-          </p>
+          {site.locations.map((location) => (
+            <p key={location.branch} className="mt-4 flex gap-3 text-sm">
+              <MapPinIcon className="h-5 w-5 shrink-0 text-brand-400" />
+              <span>
+                <span className="block font-semibold text-white">{location.branch} branch</span>
+                {location.address}
+              </span>
+            </p>
+          ))}
         </div>
       </div>
 

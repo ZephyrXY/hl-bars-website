@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 };
 
 const channels = [
-  {
+  ...site.locations.map((location) => ({
     icon: PhoneIcon,
-    label: 'Call or text',
-    value: site.phone,
-    href: site.phoneHref,
+    label: `Call or text · ${location.branch} branch`,
+    value: location.phone,
+    href: location.phoneHref,
     external: false,
-  },
+  })),
   {
     icon: FacebookIcon,
     label: 'Facebook',
@@ -89,14 +89,17 @@ export default async function ContactPage({
                 Opens from <span className="font-semibold text-white">{site.hours}</span>
               </p>
               <p>{site.days}</p>
-              <p className="mt-4 flex items-start gap-3 border-t border-white/10 pt-4 text-sm">
-                <MapPinIcon className="h-5 w-5 shrink-0 text-brand-400" />
-                <span>
-                  {site.address}
-                  <br />
-                  Also serving Naval, Biliran
-                </span>
-              </p>
+              <div className="mt-4 space-y-3 border-t border-white/10 pt-4 text-sm">
+                {site.locations.map((location) => (
+                  <p key={location.branch} className="flex items-start gap-3">
+                    <MapPinIcon className="h-5 w-5 shrink-0 text-brand-400" />
+                    <span>
+                      <span className="block font-semibold text-white">{location.branch} branch</span>
+                      {location.address}
+                    </span>
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -117,14 +120,30 @@ export default async function ContactPage({
 
       <section className="pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200">
-            <iframe
-              title="Map to HL Bars in Brgy. Cogon Combado, Ormoc City"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(site.address)}&z=15&output=embed`}
-              className="h-80 w-full sm:h-96"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div className="grid gap-6 md:grid-cols-2">
+            {site.locations.map((location) => (
+              <figure
+                key={location.branch}
+                className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200"
+              >
+                <iframe
+                  title={`Map to the HL Bars ${location.branch} branch`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(location.map.query)}&z=${location.map.zoom}&output=embed`}
+                  className="h-72 w-full sm:h-80"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <figcaption className="flex items-start gap-3 p-5 text-sm">
+                  <MapPinIcon className="h-5 w-5 shrink-0 text-brand-600" />
+                  <span>
+                    <span className="block font-display font-bold text-charcoal-900">
+                      {location.branch} branch
+                    </span>
+                    {location.address}
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
