@@ -16,7 +16,7 @@ import {
 import { site } from '@/app/lib/site';
 import { MessengerIcon } from '@/app/ui/brand-icons';
 import ImageCarousel, { type CarouselSlide } from '@/app/ui/image-carousel';
-import solarDelivery from '@/public/images/solar-panels-delivery.jpg';
+import HeroSlideshow from '@/app/ui/hero-slideshow';
 import solarEquipment from '@/public/images/solar-batteries-inverters.jpg';
 import roofRedTileHouse from '@/public/images/roof-red-tile-house.jpg';
 import roofBrownInstalled from '@/public/images/roof-brown-longspan-installed.jpg';
@@ -120,29 +120,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="overflow-hidden rounded-3xl border border-white/10 shadow-2xl">
-              <Image
-                src={solarDelivery}
-                alt="HL Bars crew unloading a pallet of 600W solar panels from a delivery truck"
-                priority
-                placeholder="blur"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 left-4 right-4 flex items-center gap-4 rounded-2xl bg-white p-4 shadow-xl sm:left-auto sm:right-6 sm:max-w-xs">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper-50 text-copper-600">
-                <SunIcon className="h-7 w-7" />
-              </span>
-              <p className="text-sm">
-                <span className="block font-display font-bold text-navy-900">
-                  Fresh from delivery
-                </span>
-                High-efficiency 600W panels, ready to install.
-              </p>
-            </div>
-          </div>
+          <HeroSlideshow />
         </div>
       </section>
 
