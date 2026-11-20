@@ -26,6 +26,8 @@ import promoSolax from '@/public/images/promo-solax-packages.jpg';
 import promoHlPower from '@/public/images/promo-hl-power-11kw.jpg';
 import promoXtriple from '@/public/images/promo-xtriple-tiers.jpg';
 import promoSolaxLuxpower from '@/public/images/promo-solax-luxpower.jpg';
+import promoSolarKit280Ah from '@/public/images/9800ecb9-a462-4cf6-8d7c-8825cc48b20e.jpg';
+import promoSolarKit100Ah from '@/public/images/4ddc105d-a41f-4a56-94f5-885aca4e5359.jpg';
 
 const highlights = [
   { icon: HomeModernIcon, title: 'Roofing', text: 'Supply & installation' },
@@ -57,6 +59,14 @@ const packageSlides: CarouselSlide[] = [
   {
     src: promoSolaxLuxpower,
     alt: 'SolaX Power hybrid systems in 6kW, 8kW, 10kW and 12kW with a 16.8kWh high-voltage battery, and Luxpower Tek 2nd Gen hybrid inverters in 6kW and 12kW',
+  },
+  {
+    src: promoSolarKit280Ah,
+    alt: '₱85,000 2 kW hybrid solar kit with a 12.8 V 280 Ah LiFePO₄ battery and five 600 W panels. Installation is separate.',
+  },
+  {
+    src: promoSolarKit100Ah,
+    alt: '₱60,600 2 kW hybrid solar kit with a 12.8 V 100 Ah LiFePO₄ battery and three 600 W panels. Installation is separate.',
   },
 ];
 
@@ -252,12 +262,13 @@ export default function HomePage() {
               Solar packages
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              Complete hybrid systems, installed
+              Hybrid solar kits and installed systems
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              Inverter, panels, battery, accessories and professional installation
-              in one VAT-inclusive price. Not sure which one fits? We&apos;ll size it for you
-              during the free site assessment.
+              Each package includes an inverter, panels, a battery and accessories.
+              Installed packages include professional installation in the VAT-inclusive price.
+              Installation is separate for kit-only offers. We&apos;ll help size your system
+              during a free site assessment.
             </p>
           </div>
           <div className="mt-12">
