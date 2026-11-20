@@ -45,6 +45,14 @@ const roofingSlides: CarouselSlide[] = [
 
 const packageSlides: CarouselSlide[] = [
   {
+    src: promoSolarKit280Ah,
+    alt: '₱85,000 2 kW hybrid solar kit with a 12.8 V 280 Ah LiFePO₄ battery and five 600 W panels. Installation is separate.',
+  },
+  {
+    src: promoSolarKit100Ah,
+    alt: '₱60,600 2 kW hybrid solar kit with a 12.8 V 100 Ah LiFePO₄ battery and three 600 W panels. Installation is separate.',
+  },
+  {
     src: promoSolax,
     alt: 'Essential Hybrid 6kW package for ₱282,000 and Ultimate Heavy Duty 6kW package for ₱357,000',
   },
@@ -59,14 +67,6 @@ const packageSlides: CarouselSlide[] = [
   {
     src: promoSolaxLuxpower,
     alt: 'SolaX Power hybrid systems in 6kW, 8kW, 10kW and 12kW with a 16.8kWh high-voltage battery, and Luxpower Tek 2nd Gen hybrid inverters in 6kW and 12kW',
-  },
-  {
-    src: promoSolarKit280Ah,
-    alt: '₱85,000 2 kW hybrid solar kit with a 12.8 V 280 Ah LiFePO₄ battery and five 600 W panels. Installation is separate.',
-  },
-  {
-    src: promoSolarKit100Ah,
-    alt: '₱60,600 2 kW hybrid solar kit with a 12.8 V 100 Ah LiFePO₄ battery and three 600 W panels. Installation is separate.',
   },
 ];
 
